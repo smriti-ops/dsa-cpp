@@ -11,7 +11,7 @@ solve an unseen Medium in 30–40 min and explain its time and space complexity 
 |---|---|---|---|
 | 1 | Nov 3–9 | Big-O + STL + **Arrays & Hashing** | `notes/01_bigO_stl_arrays_hashing.md` |
 | 2 | Nov 10–16 | **Two Pointers + Sliding Window** | `notes/02_two_pointers_sliding_window.md` |
-| 3 | Nov 17–23 | **Stack + Binary Search** | `notes/03_...` |
+| 3 | Nov 17–23 | **Stack + Binary Search** | `notes/03_stack_binary_search.md` |
 | 4 | Nov 24–30 | **Linked List** + recursion basics | `notes/04_...` |
 | 5 | Dec 1–7 | **Trees** (DFS, BFS, BST) | `notes/05_...` |
 | 6 | Dec 8–14 | **Heap + Backtracking** | `notes/06_...` |
@@ -195,3 +195,36 @@ Notes:
   stale `maxFreq`.
 - **Bonus (only if the week went well, not counted):** 209 Minimum Size Subarray Sum (Medium,
   shortest-window template), 42 Trapping Rain Water (Hard, two pointers).
+
+---
+
+## 10. Week 3 problem list: Nov 17–23 (Stack + Binary Search)
+
+Read `notes/03_stack_binary_search.md` first. Sections 1–6 (Stack) before Monday, 7–11 (Binary Search) before Thursday.
+Solutions go in `03_stack_binary_search/` (same layout as the first two weeks).
+
+| Day | Date | Problems | Difficulty | Pattern | Notes section |
+|---|---|---|---|---|---|
+| Mon | Nov 17 | 30 min theory (sections 1–4) + **20** Valid Parentheses, **682** Baseball Game | Easy, Easy | matching stack, simulation stack | 3, 4 |
+| Tue | Nov 18 | **1047** Remove All Adjacent Duplicates In String, **155** Min Stack | Easy, Medium | cancel the top, `{val, minSoFar}` | 4, 5 |
+| Wed | Nov 19 | **150** Evaluate Reverse Polish Notation, **739** Daily Temperatures | Medium, Medium | operand stack, monotonic stack | 4, 6 |
+| Thu | Nov 20 | **704** Binary Search, **35** Search Insert Position | Easy, Easy | Template 1, return `lo` | 8, 9 |
+| Fri | Nov 21 | **74** Search a 2D Matrix, **875** Koko Eating Bananas | Medium, Medium | 1-D index → (row, col), binary search on the answer | 11, 10 |
+| Sat | Nov 22 | **153** Find Minimum in Rotated Sorted Array, **496** Next Greater Element I *(optional)* | Medium, Easy | compare `a[mid]` with `a[hi]`, monotonic stack + hash map | 11, 6 |
+| Sun | Nov 23 | **Review:** re-solve 155, 150, 739, 875, 153 on a 20-min timer + read Week 4 theory | — | — | — |
+
+**Total: 12 problems** (6 Easy + 6 Medium; 8 of them are NeetCode 150).
+
+Notes:
+- **Mon:** for 20, write the three failing test cases (`")("`, `"(]"`, `"(("`) *before* coding and check each one.
+- **Tue:** for 1047, use a `string` as the stack so you can return it directly. For 155, first write the
+  O(n) `getMin` that scans, then fix it with the pair trick.
+- **Wed:** for 150, test `["4","13","5","/","+"]` (answer 6) to catch operand-order bugs. For 739,
+  fill in the trace table from Section 6 on paper before coding.
+- **Thu:** solve 704 and 35 with the **same** loop; the only change is the final `return`.
+  Then check your 35 answer against `lower_bound`.
+- **Fri:** for 875, write `ok(k)` as its own function and test it on `k = 3` and `k = 4` first.
+- **Sat:** for 153, write out the `F/T` row for `[4,5,6,7,0,1,2]` in your header comment.
+- **Week 2 leftover:** 424 is still an empty stub. Finish it in a warm-up slot this week if it wasn't solved elsewhere.
+- **Bonus (only if the week went well, not counted):** 33 Search in Rotated Sorted Array (Medium),
+  853 Car Fleet (Medium, stack), 84 Largest Rectangle in Histogram (Hard, monotonic stack).
